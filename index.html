@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurjera izsaukšana</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TAVA_GOOGLE_MAPS_API_ATSLĒGA&libraries=places"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        input, button { margin: 10px; padding: 10px; width: 80%; }
+        #map { height: 500px; width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>Kurjera izsaukšana</h1>
+    <input type="text" id="client_name" placeholder="Jūsu vārds">
+    <input type="text" id="pickup_address" placeholder="Saņemšanas adrese">
+    <input type="text" id="delivery_address" placeholder="Piegādes adrese">
+    <button onclick="requestDelivery()">Izsaukt kurjeru</button>
+
+    <h2>Aktīvie pieprasījumi</h2>
+    <button onclick="getDeliveries()">Apskatīt pieprasījumus</button>
+    <ul id="delivery_list"></ul>
+
+    <h2>Kurjera maršruts</h2>
+    <button onclick="generateRoute()">Ģenerēt maršrutu</button>
+    <div id="map"></div>
+
+</body>
+</html>
